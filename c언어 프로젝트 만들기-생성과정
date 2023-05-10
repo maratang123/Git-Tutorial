@@ -1,0 +1,56 @@
+//요구 조건 :  
+//스타트업 프로젝트 회사가 있다고 가정을 한다. 
+//이 프로젝트 회사에서는 DB와 서버를 사용하려고 했으나, 
+//서버, 클라이언트, DB를 이용할 줄 아는 개발자가 없다. 
+//외주를 하려고 했으나 회사 자금이 모자라서 아웃소싱도 불가능하다. 
+//따라서 할 수 있는 최선의 방법으로 프로그램을 계속 켜놓음으로서 
+//프로젝트가 들어오는 것과 나가는 것을 관리할 수 있고 
+//한 컴퓨터를 통해서 지속적으로 데이터를 쌓아두려고 한다.
+//컴퓨터가 꺼지지 않는 한 데이터를 지속적으로
+//저장된 상태로 유지하고 있어야한다.
+//돈이 조금 벌리면 이제 아웃소싱을 맡겨 제대로 된 프로그램을 
+//작성할 것이다. 그러기 위해서는 우선 돈을 벌어야 한다.
+//요구조건 분석:
+//데이터 쌓아두기+프로젝트 생성,변경,삭제과정+DB,서버사용
+#include <stdio.h>
+#define Web 0
+#define C 1
+#define Cpp 2
+#define JAVA 3
+int main() {
+    int project[4][1000];
+    char Project_Contents[4][1000][200];
+    int N, K;
+    int _W = 0, _C = 0, _Cpp = 0, _J = 0;
+    while (1) {
+        printf("프로젝트 종류를 선택하여 주세요. Web : 0, C : 1, C++ : 2, JAVA : 3\n");
+        scanf_s("%d", &N);
+        printf("1. 프로젝트 보기 2. 프로젝트 생성 3. 프로젝트 삭제\n");
+        scanf_s("%d", &K);
+        if (K == 2)
+            switch (N) {
+            case 0:
+                printf("Web을 선택하셨습니다. 100자 이내로 입력해주세요.\n"); project[Web][_W] = 1;
+                scanf_s(" %[^\n]s", Project_Contents[Web][_W++], 100);
+                printf("%s\n", Project_Contents[0][0]);
+                break;
+            case 1:
+                printf("C을 선택하셨습니다. 100자 이내로 입력해주세요.\n"); project[C][_C] = 1;
+                scanf_s(" %[^\n]s", Project_Contents[C][_C++], 100);
+                printf("%s\n", Project_Contents[1][0]);
+                break;
+            case 2:
+                printf("C++을 선택하셨습니다. 100자 이내로 입력해주세요.\n"); project[Cpp][_Cpp] = 1;
+                scanf_s(" %[^\n]s", Project_Contents[Cpp][_Cpp++], 100);
+                printf("%s\n", Project_Contents[2][0]);
+                break;
+            case 3:
+                printf("Java++을 선택하셨습니다. 100자 이내로 입력해주세요.\n"); project[JAVA][_J] = 1;
+                scanf_s(" %[^\n]s", Project_Contents[JAVA][_J++], 100);
+                printf("%s\n", Project_Contents[3][0]);
+                break;
+            }
+ 
+    }
+    return 0;
+}
